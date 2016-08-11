@@ -38,6 +38,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('add_dirs')->canBeUnset()->prototype('scalar')->end()->end()
                 ->scalarNode('dir_name')->defaultValue('%kernel.root_dir%/DoctrineMigrations')->cannotBeEmpty()->end()
                 ->scalarNode('namespace')->defaultValue('Application\Migrations')->cannotBeEmpty()->end()
                 ->scalarNode('table_name')->defaultValue('migration_versions')->cannotBeEmpty()->end()

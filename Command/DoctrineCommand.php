@@ -67,6 +67,14 @@ abstract class DoctrineCommand extends BaseCommand
             $configuration->registerMigrationsFromDirectory($configuration->getMigrationsDirectory());
         }
 
+        if ($container->hasParameter('doctrine_migrations.add_dirs')) {
+            $paths = $container->getParameter('doctrine_migrations.add_dirs');
+
+            foreach ($paths as $path) {
+                $configuration->registerMigrationsFromDirectory($path);
+            }
+        }
+
         $organizeMigrations = $container->getParameter('doctrine_migrations.organize_migrations');
         switch ($organizeMigrations) {
             case Configuration::VERSIONS_ORGANIZATION_BY_YEAR:

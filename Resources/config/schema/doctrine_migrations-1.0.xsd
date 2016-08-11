@@ -6,7 +6,9 @@
 
     <xsd:element name="config">
         <xsd:complexType>
+            <xsd:element name="add_dirs" type="templating" minOccurs="0" maxOccurs="1" />
             <xsd:attribute name="dir_name" type="xsd:string" />
+            <xsd:attribute name="add_name" type="xsd:string" />
             <xsd:attribute name="namespace" type="xsd:string" />
             <xsd:attribute name="table_name" type="xsd:string" />
             <xsd:attribute name="name" type="xsd:string" />
